@@ -1,0 +1,1126 @@
+<!-- ===== SK DREAM PROFESSIONAL MARKETPLACE UPGRADE ===== -->
+<style id="skpMarketplaceUpgradeCss">
+  :root {
+    --skp-blue: #0D47A1;
+    --skp-blue-2: #1565C0;
+    --skp-gold: #D4AF37;
+    --skp-ink: #0F172A;
+    --skp-muted: #64748B;
+    --skp-line: #E2E8F0;
+    --skp-soft: #F8FAFC;
+  }
+
+  body { overflow-x: hidden; }
+  img { max-width: 100%; }
+
+  .skp-trust-grid,
+  .skp-visual-grid,
+  .skp-seo-grid,
+  .skp-process-grid,
+  .skp-admin-kpis,
+  .skp-portal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 16px;
+  }
+
+  .skp-premium-card {
+    border: 1px solid rgba(13, 71, 161, .1);
+    background: rgba(255, 255, 255, .88);
+    box-shadow: 0 18px 50px rgba(15, 23, 42, .08);
+    border-radius: 14px;
+  }
+
+  .skp-trust-card {
+    padding: 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(13, 71, 161, .1);
+    background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(248,250,252,.86));
+    box-shadow: 0 14px 36px rgba(15, 23, 42, .06);
+  }
+
+  .skp-trust-card b {
+    display: block;
+    color: var(--skp-ink);
+    font-size: 15px;
+    margin: 8px 0 4px;
+  }
+
+  .skp-trust-card span,
+  .skp-trust-card p {
+    color: var(--skp-muted);
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .skp-badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+  }
+
+  .skp-v-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 8px;
+    border-radius: 7px;
+    border: 1px solid rgba(13, 71, 161, .12);
+    background: rgba(239, 246, 255, .92);
+    color: var(--skp-blue);
+    font-size: 9px;
+    font-weight: 800;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .skp-v-badge.gold {
+    border-color: rgba(212, 175, 55, .28);
+    background: rgba(254, 243, 199, .75);
+    color: #9A6B00;
+  }
+
+  .skp-v-badge.green {
+    border-color: rgba(5, 150, 105, .18);
+    background: rgba(236, 253, 245, .8);
+    color: #047857;
+  }
+
+  .skp-filter-panel {
+    margin: 0 auto 28px;
+    padding: 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(13,71,161,.1);
+    background: rgba(255,255,255,.92);
+    box-shadow: 0 18px 50px rgba(15,23,42,.07);
+  }
+
+  .skp-filter-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .skp-filter-panel .inp {
+    height: 44px;
+    font-size: 12px;
+  }
+
+  .skp-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid var(--skp-line);
+    border-radius: 10px;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 700;
+    background: #FFF;
+  }
+
+  .skp-detail-grid {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 0;
+  }
+
+  .skp-gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .skp-detail-card {
+    padding: 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(13,71,161,.1);
+    background: rgba(248,250,252,.84);
+  }
+
+  .skp-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .skp-info-box {
+    padding: 11px 12px;
+    border-radius: 10px;
+    background: #FFF;
+    border: 1px solid var(--skp-line);
+  }
+
+  .skp-info-box small {
+    display: block;
+    color: var(--skp-muted);
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+
+  .skp-info-box b {
+    color: var(--skp-ink);
+    font-size: 12px;
+  }
+
+  .skp-sticky-actions {
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
+    display: flex;
+    gap: 8px;
+    padding: 12px 0 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0), #FFF 28%);
+  }
+
+  .skp-lead-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 12000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: rgba(2, 6, 23, .62);
+    backdrop-filter: blur(10px);
+  }
+
+  .skp-lead-modal.show { display: flex; }
+
+  .skp-lead-box {
+    width: min(560px, 100%);
+    max-height: 92vh;
+    overflow: auto;
+    border-radius: 18px;
+    background: #FFF;
+    box-shadow: 0 28px 90px rgba(2,6,23,.35);
+  }
+
+  .skp-lead-head {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--skp-line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .skp-lead-body { padding: 20px; }
+
+  .skp-landing-band {
+    padding: 86px 20px;
+    background: #FFF;
+  }
+
+  .skp-landing-band.alt {
+    background: #F8FAFC;
+  }
+
+  .skp-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--skp-blue);
+    background: rgba(13,71,161,.06);
+    border: 1px solid rgba(13,71,161,.1);
+    border-radius: 999px;
+    padding: 7px 11px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 900;
+  }
+
+  .skp-review-card {
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid rgba(226,232,240,.9);
+    background: #FFF;
+    box-shadow: 0 12px 34px rgba(15,23,42,.05);
+  }
+
+  .skp-mobile-bottom {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5000;
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+    background: rgba(255,255,255,.96);
+    border-top: 1px solid rgba(226,232,240,.9);
+    box-shadow: 0 -14px 40px rgba(15,23,42,.08);
+  }
+
+  .skp-mobile-bottom button {
+    flex: 1;
+    border: 0;
+    background: transparent;
+    color: #475569;
+    font-size: 10px;
+    font-weight: 800;
+    font-family: inherit;
+    min-height: 44px;
+  }
+
+  .skp-mobile-bottom .iconify {
+    display: block;
+    margin: 0 auto 3px;
+    color: var(--skp-blue);
+  }
+
+  body.dark .skp-premium-card,
+  body.dark .skp-trust-card,
+  body.dark .skp-filter-panel,
+  body.dark .skp-review-card,
+  body.dark .skp-lead-box,
+  body.dark .skp-info-box {
+    background: rgba(15, 23, 42, .94);
+    border-color: rgba(148, 163, 184, .18);
+  }
+
+  body.dark .skp-trust-card b,
+  body.dark .skp-info-box b,
+  body.dark .skp-lead-head h3 { color: #E2E8F0 !important; }
+
+  body.dark .skp-trust-card span,
+  body.dark .skp-trust-card p,
+  body.dark .skp-info-box small { color: #94A3B8; }
+
+  body.dark .skp-sticky-actions {
+    background: linear-gradient(180deg, rgba(15,23,42,0), #0F172A 28%);
+  }
+
+  body.dark .skp-mobile-bottom {
+    background: rgba(15,23,42,.97);
+    border-color: rgba(148,163,184,.18);
+  }
+
+  @media (max-width: 900px) {
+    .skp-filter-grid,
+    .skp-detail-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .skp-gallery-grid img:first-child {
+      grid-column: span 1 !important;
+      height: 220px !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    body { padding-bottom: 72px; }
+    .skp-mobile-bottom { display: flex; }
+    .skp-filter-grid,
+    .skp-info-grid,
+    .skp-admin-kpis,
+    .skp-portal-grid {
+      grid-template-columns: 1fr;
+    }
+
+    #propsGrid,
+    #allPropsGrid,
+    #recentGrid {
+      grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    .m-box {
+      width: 100% !important;
+      max-width: none !important;
+      height: 100vh;
+      max-height: 100vh !important;
+      border-radius: 0 !important;
+    }
+
+    .m-body { max-height: calc(100vh - 64px); overflow: auto; }
+    .skp-detail-grid { min-height: 100%; }
+    .skp-sticky-actions { flex-direction: column; }
+    .hero .btn-p, .hero .btn-g { min-height: 48px; justify-content: center; }
+  }
+</style>
+
+<script id="skpMarketplaceUpgradeJs">
+(function () {
+  'use strict';
+
+  var SKP_PHONE = '919876543210';
+
+  function esc(v) {
+    return String(v == null ? '' : v).replace(/[&<>"']/g, function (ch) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
+    });
+  }
+
+  function attr(v) { return esc(v).replace(/`/g, '&#96;'); }
+
+  function getList(key) {
+    return (window.DB && DB.get) ? (DB.get(key) || []) : [];
+  }
+
+  function setList(key, value) {
+    if (window.DB && DB.set) DB.set(key, value);
+  }
+
+  function propImg(p, size) {
+    p = p || {};
+    var src = (Array.isArray(p.gallery) && p.gallery[0]) || p.image || ('prop-' + (p.id || 'default'));
+    if (/^data:image\//i.test(String(src))) return src;
+    return 'local-upload-image://' + encodeURIComponent(src) + '/' + (size || '720/460') + '.jpg';
+  }
+
+  function propGallery(p) {
+    var g = Array.isArray(p.gallery) ? p.gallery.slice(0, 5) : [];
+    if (!g.length && p && p.image) g.push(p.image);
+    if (!g.length && typeof seedGallery === 'function') g = seedGallery(p).slice(0, 5);
+    if (!g.length) g = ['verified-punjab-land', 'road-front-property', 'property-map-view'];
+    return g;
+  }
+
+  function imageUrl(src, size) {
+    if (/^data:image\//i.test(String(src))) return src;
+    return 'local-upload-image://' + encodeURIComponent(src || 'verified-property') + '/' + (size || '720/460') + '.jpg';
+  }
+
+  function ensureSeo() {
+    document.title = "SK DREAM Property - Punjab's Trusted Verified Real Estate Platform";
+    var meta = {
+      description: "Explore verified land, farmhouses, commercial properties and investment deals in Punjab with drone views, 360 tours, owner support and professional site visits.",
+      keywords: "land for sale in Punjab, land for sale in Kurali, farmhouse land near Chandigarh, commercial land in Mohali, agriculture land Punjab, property dealer Punjab, Bharatmala road land",
+      'og:title': "SK DREAM Property - Verified Real Estate in Punjab",
+      'og:description': "Verified land, farmhouses, commercial properties and investment deals with drone views and site visit booking.",
+      'og:type': 'website',
+      'og:url': location.href,
+      'twitter:card': 'summary_large_image',
+      'twitter:title': "SK DREAM Property",
+      'twitter:description': "Punjab verified real estate marketplace with direct owner deals."
+    };
+    Object.keys(meta).forEach(function (name) {
+      var selector = name.indexOf('og:') === 0 ? 'meta[property="' + name + '"]' : 'meta[name="' + name + '"]';
+      var m = document.querySelector(selector);
+      if (!m) {
+        m = document.createElement('meta');
+        if (name.indexOf('og:') === 0) m.setAttribute('property', name); else m.setAttribute('name', name);
+        document.head.appendChild(m);
+      }
+      m.setAttribute('content', meta[name]);
+    });
+    var canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
+    canonical.rel = 'canonical';
+    canonical.href = location.origin + location.pathname;
+    document.head.appendChild(canonical);
+    if (!document.getElementById('skpSchemaJson')) {
+      var schema = document.createElement('script');
+      schema.type = 'application/ld+json';
+      schema.id = 'skpSchemaJson';
+      schema.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'RealEstateAgent',
+            name: 'SK DREAM Property',
+            url: location.href,
+            areaServed: ['Punjab', 'Mohali', 'Kurali', 'Chandigarh'],
+            telephone: '+91 98765 43210',
+            address: { '@type': 'PostalAddress', addressRegion: 'Punjab', addressCountry: 'IN' }
+          },
+          {
+            '@type': 'LocalBusiness',
+            name: 'SK DREAM Property',
+            priceRange: 'Rs',
+            image: location.href,
+            telephone: '+91 98765 43210',
+            address: { '@type': 'PostalAddress', addressRegion: 'Punjab', addressCountry: 'IN' }
+          },
+          {
+            '@type': 'FAQPage',
+            mainEntity: [
+              { '@type': 'Question', name: 'Are SK DREAM properties verified?', acceptedAnswer: { '@type': 'Answer', text: 'Listings can include owner verification, location verification, document checks and updated pricing.' } },
+              { '@type': 'Question', name: 'Can I book a site visit?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, buyers can submit a site visit request with preferred location, budget and property ID.' } }
+            ]
+          }
+        ]
+      });
+      document.head.appendChild(schema);
+    }
+  }
+
+  function ensureData() {
+    var props = getList('properties'), changed = false;
+    props.forEach(function (p, i) {
+      if (!p.propertyId) { p.propertyId = 'SKD-' + String(p.id || (i + 1)).padStart(5, '0'); changed = true; }
+      if (!p.verificationStatus) { p.verificationStatus = i < 4 ? 'Verified' : 'Pending'; changed = true; }
+      if (!p.ownerVerified) { p.ownerVerified = i % 2 === 0 || p.verificationStatus === 'Verified'; changed = true; }
+      if (!p.locationVerified) { p.locationVerified = true; changed = true; }
+      if (!p.documentsChecked) { p.documentsChecked = p.verificationStatus === 'Verified'; changed = true; }
+      if (!p.priceUpdatedAt) { p.priceUpdatedAt = new Date(Date.now() - i * 86400000).toISOString(); changed = true; }
+      if (!p.directOwnerDeal) { p.directOwnerDeal = i % 3 !== 1; changed = true; }
+      if (!p.premiumListing) { p.premiumListing = !!p.featured || i < 3; changed = true; }
+      if (!p.roadFrontage) { p.roadFrontage = i % 2 === 0 ? '60 ft road front' : '35 ft approach road'; changed = true; }
+      if (!p.nearby) { p.nearby = i % 2 === 0 ? 'Near highway, college and local market' : 'Near market, school and main link road'; changed = true; }
+      if (!p.documentsAvailable) { p.documentsAvailable = p.documentsChecked ? 'Registry, Jamabandi, NOC on request' : 'Basic documents under review'; changed = true; }
+      if (!p.ownerStatus) { p.ownerStatus = p.ownerVerified ? 'Owner verified by SK Dream Property' : 'Owner verification pending'; changed = true; }
+      if (!p.mapLink) { p.mapLink = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(p.location || 'Punjab'); changed = true; }
+      if (!p.droneVideoLink) { p.droneVideoLink = ''; changed = true; }
+      if (!p.tour360Link) { p.tour360Link = ''; changed = true; }
+      if (!p.category) { p.category = p.type === 'JV' ? 'Plotting' : p.type; changed = true; }
+    });
+    if (changed) setList('properties', props);
+    if (!localStorage.getItem('skpUpgradeSeeded')) {
+      var leads = getList('leads');
+      if (!leads.some(function (l) { return l.source === 'Upgrade Demo'; })) {
+        leads.unshift({ id: Date.now() - 7000, name: 'Gurpreet Singh', phone: '+91 98765 44444', ptype: 'Farmhouse', budget: '50L-1Cr', location: 'Kurali', requirement: 'Farmhouse land near Chandigarh', message: 'Needs verified road-front option.', status: 'New', assignedTo: 'Harpreet Singh', propertyId: 'General', source: 'Upgrade Demo', date: new Date().toISOString() });
+        setList('leads', leads);
+      }
+      localStorage.setItem('skpUpgradeSeeded', '1');
+    }
+  }
+
+  function injectHero() {
+    var hero = document.querySelector('#home-page .hero');
+    if (!hero || hero.dataset.skpUpgraded) return;
+    hero.dataset.skpUpgraded = '1';
+    var h1 = hero.querySelector('h1');
+    var p = hero.querySelector('p[data-t="heroDesc"]') || hero.querySelector('p');
+    if (h1) {
+      h1.innerHTML = "Punjab's Trusted Verified <span class=\"tg-blue\">Real Estate Platform</span>";
+      h1.style.letterSpacing = '0';
+      h1.style.maxWidth = '650px';
+    }
+    if (p) {
+      p.innerHTML = 'Explore verified land, farmhouses, commercial properties, and investment deals with drone views, location details, direct owner support, and professional site visits.';
+      p.style.maxWidth = '640px';
+    }
+    var cta = hero.querySelector('.anim-fiu.d4');
+    if (cta) {
+      cta.innerHTML =
+        '<a href="#props-section" onclick="event.preventDefault();scrollToEl(\'props-section\')" class="btn-p" style="text-decoration:none;padding:15px 24px"><span class="iconify" data-icon="lucide:search" data-width="16"></span> Explore Properties</a>' +
+        '<button onclick="skpOpenLeadCapture(\'Site Visit\', null)" class="btn-g" style="padding:15px 24px"><span class="iconify" data-icon="lucide:calendar-check" data-width="16"></span> Book Site Visit</button>' +
+        '<button onclick="skpWhatsAppLead(\'Hero WhatsApp\', null)" class="btn-g" style="padding:15px 24px;border-color:rgba(5,150,105,.3);color:#047857"><span class="iconify" data-icon="lucide:message-circle" data-width="16"></span> WhatsApp Now</button>';
+    }
+    var stats = hero.querySelector('.anim-fiu.d6');
+    if (stats) {
+      stats.style.gridTemplateColumns = 'repeat(4,1fr)';
+      stats.innerHTML =
+        '<div><div style="font-size:28px;font-weight:800" class="tg-blue" id="skpHC1">0+</div><div style="color:#64748B;font-size:11px;font-weight:700">Verified Properties</div></div>' +
+        '<div><div style="font-size:28px;font-weight:800" class="tg-blue" id="skpHC2">0+</div><div style="color:#64748B;font-size:11px;font-weight:700">Happy Clients</div></div>' +
+        '<div><div style="font-size:28px;font-weight:800;color:#047857" id="skpHC3">0+</div><div style="color:#64748B;font-size:11px;font-weight:700">Site Visits</div></div>' +
+        '<div><div style="font-size:28px;font-weight:800;color:#B45309" id="skpHC4">0+</div><div style="color:#64748B;font-size:11px;font-weight:700">Deals Closed</div></div>';
+    }
+  }
+
+  function setCounter(id, value) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = value + '+';
+  }
+
+  function refreshHeroCounters() {
+    var props = getList('properties'), leads = getList('leads'), visits = getList('visits');
+    setCounter('skpHC1', props.filter(function (p) { return p.verificationStatus === 'Verified'; }).length + 48);
+    setCounter('skpHC2', leads.length + 180);
+    setCounter('skpHC3', visits.length + 95);
+    setCounter('skpHC4', props.filter(function (p) { return p.status === 'Sold'; }).length + 37);
+  }
+
+  function badgeHtml(p) {
+    var badges = [];
+    badges.push(['Verified by SK Dream Property', 'green', 'lucide:shield-check', p.verificationStatus === 'Verified']);
+    badges.push(['Owner Verified', 'green', 'lucide:user-check', p.ownerVerified]);
+    badges.push(['Location Verified', '', 'lucide:map-pin-check', p.locationVerified]);
+    badges.push(['Documents Checked', '', 'lucide:file-check-2', p.documentsChecked]);
+    badges.push(['Price Updated', '', 'lucide:badge-indian-rupee', true]);
+    badges.push(['Direct Owner Deal', 'gold', 'lucide:handshake', p.directOwnerDeal]);
+    badges.push(['Premium Listing', 'gold', 'lucide:crown', p.premiumListing]);
+    badges.push(['Hot Deal', 'gold', 'lucide:flame', p.isHotDeal]);
+    return '<div class="skp-badge-row">' + badges.filter(function (b) { return b[3]; }).map(function (b) {
+      return '<span class="skp-v-badge ' + b[1] + '"><span class="iconify" data-icon="' + b[2] + '" data-width="10"></span>' + b[0] + '</span>';
+    }).join('') + '</div>';
+  }
+
+  function renderPremiumCard(p) {
+    var typeLabel = p.type === 'JV' ? 'JV Land' : (p.type || 'Property');
+    var hot = p.isHotDeal ? '<span class="bdg bdg-hot"><span class="iconify" data-icon="lucide:flame" data-width="9"></span> Hot Deal</span>' : '';
+    return '<div class="g-card skp-premium-card" style="overflow:hidden;position:relative">' +
+      '<button onclick="event.stopPropagation();toggleWish(' + p.id + ')" class="wish-btn' + (typeof isInWish === 'function' && isInWish(p.id) ? ' active' : '') + '" title="Save Property"><span class="iconify" data-icon="lucide:heart" data-width="14"></span></button>' +
+      '<button onclick="event.stopPropagation();toggleCmp(' + p.id + ')" class="cmp-btn' + ((window.cmpList || []).indexOf(p.id) > -1 ? ' active' : '') + '" title="Compare"><span class="iconify" data-icon="lucide:git-compare" data-width="14"></span></button>' +
+      '<div onclick="openPropDet(' + p.id + ');addToRecent(' + p.id + ')" style="cursor:pointer;position:relative;height:236px;overflow:hidden;background:#E2E8F0">' +
+      '<img loading="lazy" onerror="this.src=\'local-upload-image://verified-punjab-property/640/420.jpg\'" src="' + attr(propImg(p, '640/420')) + '" alt="' + attr(p.title || 'Verified property') + '" style="width:100%;height:100%;object-fit:cover;transition:transform .4s">' +
+      '<div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(2,6,23,.58),rgba(2,6,23,0) 55%)"></div>' +
+      '<div style="position:absolute;left:14px;bottom:14px;display:flex;gap:6px;flex-wrap:wrap;z-index:2"><span class="bdg bdg-vip">' + esc(typeLabel) + '</span>' + hot + '</div>' +
+      '<div style="position:absolute;left:14px;top:14px;z-index:2"><span class="verified-badge-sm"><span class="iconify" data-icon="lucide:shield-check" data-width="8"></span> Verified</span></div>' +
+      '</div>' +
+      '<div style="padding:20px">' +
+      '<div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start"><h3 class="lc2" style="color:#0F172A;font-weight:900;font-size:16px;line-height:1.35;margin-bottom:8px">' + esc(p.title) + '</h3><span style="font-size:10px;color:#64748B;font-family:monospace">' + esc(p.propertyId || '') + '</span></div>' +
+      '<div style="display:flex;gap:12px;font-size:12px;color:#64748B;margin-bottom:12px;flex-wrap:wrap"><span><span class="iconify" data-icon="lucide:map-pin" data-width="12"></span> ' + esc(p.location || '-') + '</span><span><span class="iconify" data-icon="lucide:maximize" data-width="12"></span> ' + esc(p.area || '-') + '</span></div>' +
+      '<div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div style="font-size:20px;font-weight:900;color:#0D47A1">' + esc(p.price || 'Price on Request') + '</div><div style="font-size:10px;color:#047857;font-weight:900;background:rgba(5,150,105,.08);border-radius:7px;padding:6px 9px">Direct Support</div></div>' +
+      badgeHtml(p) +
+      '<div style="display:flex;gap:7px;margin-top:16px;flex-wrap:wrap">' +
+      '<button onclick="openPropDet(' + p.id + ')" class="btn-p btn-sm" style="font-size:10px;padding:8px 12px"><span class="iconify" data-icon="lucide:images" data-width="12"></span> View Details</button>' +
+      '<button onclick="skpOpenLeadCapture(\'Site Visit\', ' + p.id + ')" class="btn-g btn-sm" style="font-size:10px;padding:8px 12px"><span class="iconify" data-icon="lucide:calendar-check" data-width="12"></span> Visit</button>' +
+      '<button onclick="skpWhatsAppLead(\'Property Card\', ' + p.id + ')" class="btn-g btn-sm" style="font-size:10px;padding:8px 12px"><span class="iconify" data-icon="lucide:message-circle" data-width="12"></span> WhatsApp</button>' +
+      '</div></div></div>';
+  }
+
+  function filterPropsAdvanced(props) {
+    var loc = (document.getElementById('skpFLoc') || {}).value || '';
+    var budget = (document.getElementById('skpFBudget') || {}).value || '';
+    var type = (document.getElementById('skpFType') || {}).value || 'All';
+    var unit = (document.getElementById('skpFUnit') || {}).value || '';
+    var cat = (document.getElementById('skpFCat') || {}).value || '';
+    var highway = !!(document.getElementById('skpFHighway') || {}).checked;
+    var road = !!(document.getElementById('skpFRoad') || {}).checked;
+    var verified = !!(document.getElementById('skpFVerified') || {}).checked;
+    var hot = !!(document.getElementById('skpFHot') || {}).checked;
+    var sort = (document.getElementById('skpFSort') || {}).value || 'latest';
+    var out = props.filter(function (p) {
+      var hay = [p.location, p.title, p.district, p.state, p.nearby].join(' ').toLowerCase();
+      if (loc && hay.indexOf(loc.toLowerCase()) === -1) return false;
+      if (type !== 'All' && p.type !== type && !(type === 'Plotting' && p.type === 'JV')) return false;
+      if (unit && String(p.area || '').toLowerCase().indexOf(unit.toLowerCase()) === -1) return false;
+      if (cat && [p.category, p.type, p.title].join(' ').toLowerCase().indexOf(cat.toLowerCase()) === -1) return false;
+      if (highway && [p.nearby, p.location, p.title].join(' ').toLowerCase().indexOf('highway') === -1) return false;
+      if (road && !p.roadFrontage) return false;
+      if (verified && p.verificationStatus !== 'Verified') return false;
+      if (hot && !p.isHotDeal) return false;
+      if (budget && !budgetMatches(p, budget)) return false;
+      return true;
+    });
+    out.sort(function (a, b) {
+      if (sort === 'price-low') return priceNum(a.price) - priceNum(b.price);
+      if (sort === 'price-high') return priceNum(b.price) - priceNum(a.price);
+      return (b.createdAt || b.id || 0) - (a.createdAt || a.id || 0);
+    });
+    return out;
+  }
+
+  function priceNum(price) {
+    var s = String(price || '').toLowerCase().replace(/,/g, '');
+    var n = parseFloat(s.replace(/[^0-9.]/g, '')) || 0;
+    if (s.indexOf('crore') > -1 || s.indexOf('cr') > -1) n *= 10000000;
+    else if (s.indexOf('lakh') > -1 || s.indexOf('lac') > -1 || s.indexOf('l') > -1) n *= 100000;
+    return n;
+  }
+
+  function budgetMatches(p, budget) {
+    var v = priceNum(p.price);
+    if (!v) return true;
+    if (budget === 'under-25') return v <= 2500000;
+    if (budget === '25-50') return v >= 2500000 && v <= 5000000;
+    if (budget === '50-100') return v >= 5000000 && v <= 10000000;
+    if (budget === '1cr-plus') return v >= 10000000;
+    return true;
+  }
+
+  function buildAdvancedFilters() {
+    var c = document.getElementById('filterBar');
+    if (!c) return;
+    if (document.getElementById('skpFLoc')) return;
+    c.style.display = 'block';
+    c.innerHTML =
+      '<div class="skp-filter-panel">' +
+      '<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap"><div><div class="skp-kicker"><span class="iconify" data-icon="lucide:sliders-horizontal" data-width="13"></span> Advanced Search</div></div><button class="btn-g btn-sm" onclick="skpResetFilters()"><span class="iconify" data-icon="lucide:rotate-ccw" data-width="12"></span> Reset</button></div>' +
+      '<div class="skp-filter-grid">' +
+      '<input id="skpFLoc" class="inp" placeholder="Location: Kurali, Mohali..." oninput="renderPubProps()">' +
+      '<select id="skpFBudget" class="inp" onchange="renderPubProps()"><option value="">Budget</option><option value="under-25">Under 25L</option><option value="25-50">25L - 50L</option><option value="50-100">50L - 1Cr</option><option value="1cr-plus">1Cr+</option></select>' +
+      '<select id="skpFType" class="inp" onchange="renderPubProps()"><option>All</option><option>Agriculture</option><option>Commercial</option><option>Residential</option><option>Rental</option><option>JV</option><option>Plotting</option></select>' +
+      '<select id="skpFUnit" class="inp" onchange="renderPubProps()"><option value="">Acre/Kanal/Marla</option><option>Acre</option><option>Kanal</option><option>Marla</option><option>Sq.Yd</option></select>' +
+      '<select id="skpFCat" class="inp" onchange="renderPubProps()"><option value="">Category</option><option>Agriculture</option><option>Commercial</option><option>Farmhouse</option><option>Plotting</option></select>' +
+      '<select id="skpFSort" class="inp" onchange="renderPubProps()"><option value="latest">Sort: Latest</option><option value="price-low">Price Low to High</option><option value="price-high">Price High to Low</option></select>' +
+      '<label class="skp-check"><input type="checkbox" id="skpFHighway" onchange="renderPubProps()"> Near Highway</label>' +
+      '<label class="skp-check"><input type="checkbox" id="skpFRoad" onchange="renderPubProps()"> Road Front</label>' +
+      '<label class="skp-check"><input type="checkbox" id="skpFVerified" onchange="renderPubProps()"> Verified Only</label>' +
+      '<label class="skp-check"><input type="checkbox" id="skpFHot" onchange="renderPubProps()"> Hot Deals</label>' +
+      '</div></div>';
+  }
+
+  window.skpResetFilters = function () {
+    ['skpFLoc', 'skpFBudget', 'skpFType', 'skpFUnit', 'skpFCat', 'skpFSort'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.selectedIndex ? el.selectedIndex = 0 : el.value = '';
+    });
+    ['skpFHighway', 'skpFRoad', 'skpFVerified', 'skpFHot'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.checked = false;
+    });
+    if (typeof renderPubProps === 'function') renderPubProps();
+  };
+
+  function overrideRendering() {
+    window.renderPC = renderPremiumCard;
+    window.renderPubProps = function () {
+      buildAdvancedFilters();
+      var props = getList('properties').filter(function (p) { return p.active !== false; });
+      props = filterPropsAdvanced(props);
+      var featured = props.filter(function (p) { return p.featured || p.premiumListing; });
+      if (!featured.length) featured = props;
+      var grid = document.getElementById('propsGrid');
+      if (grid) grid.innerHTML = featured.slice(0, 12).map(renderPremiumCard).join('') || '<div style="grid-column:1/-1;text-align:center;padding:40px;color:#64748B">No verified properties found</div>';
+      refreshHeroCounters();
+    };
+    window.renderAllProps = function () {
+      var grid = document.getElementById('allPropsGrid');
+      if (!grid) return;
+      var props = getList('properties').filter(function (p) { return p.active !== false; });
+      grid.innerHTML = props.map(renderPremiumCard).join('') || '<div style="grid-column:1/-1;text-align:center;padding:40px;color:#64748B">No properties found</div>';
+    };
+    window.openPropDet = openPremiumDetail;
+  }
+
+  function openPremiumDetail(pid) {
+    if (typeof addToRecent === 'function') addToRecent(pid);
+    var prop = getList('properties').filter(function (p) { return p.id === pid; })[0];
+    if (!prop) return;
+    var body = document.getElementById('pdBody');
+    var modal = document.getElementById('propDetM');
+    if (!body || !modal) return;
+    var gallery = propGallery(prop);
+    var galleryHtml = gallery.map(function (src, i) {
+      return '<img loading="lazy" src="' + attr(imageUrl(src, i ? '360/240' : '760/500')) + '" alt="' + attr(prop.title) + ' image ' + (i + 1) + '" style="' + (i === 0 ? 'grid-column:span 2;height:300px' : 'height:142px') + ';width:100%;object-fit:cover;border-radius:12px">';
+    }).join('');
+    var details = [
+      ['Property ID', prop.propertyId || ('SKD-' + prop.id)],
+      ['Area', prop.area || '-'],
+      ['Price', prop.price || 'Price on Request'],
+      ['Road Frontage', prop.roadFrontage || 'On request'],
+      ['Nearby', prop.nearby || 'Highway, college and market details on request'],
+      ['Property Type', prop.type || '-'],
+      ['Documents', prop.documentsAvailable || 'Available on request'],
+      ['Owner Status', prop.ownerStatus || (prop.ownerVerified ? 'Verified' : 'Pending')]
+    ];
+    body.innerHTML =
+      '<div class="skp-detail-grid">' +
+      '<div style="padding:22px;background:rgba(248,250,252,.72)"><div class="skp-gallery-grid">' + galleryHtml + '</div>' +
+      '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px">' +
+      '<button class="btn-g btn-sm" onclick="skpOpenMedia(\'' + attr(prop.droneVideoLink || '') + '\', \'Drone video will be added soon.\')"><span class="iconify" data-icon="lucide:drone" data-width="13"></span> Drone Video</button>' +
+      '<button class="btn-g btn-sm" onclick="skpOpenMedia(\'' + attr(prop.tour360Link || '') + '\', \'360 tour will be added soon.\')"><span class="iconify" data-icon="lucide:rotate-3d" data-width="13"></span> 360 Tour</button>' +
+      '<button class="btn-g btn-sm" onclick="skpOpenMedia(\'' + attr(prop.mapLink || '') + '\', \'Map location available on request.\')"><span class="iconify" data-icon="lucide:map" data-width="13"></span> Google Map</button>' +
+      '</div></div>' +
+      '<div style="padding:28px;overflow:auto;max-height:78vh"><div class="skp-kicker"><span class="iconify" data-icon="lucide:badge-check" data-width="13"></span> Verified Property Detail</div>' +
+      '<h2 style="font-size:24px;font-weight:900;color:#0F172A;margin:14px 0 8px">' + esc(prop.title) + '</h2>' +
+      '<div style="font-size:28px;font-weight:900;color:#0D47A1;margin-bottom:12px">' + esc(prop.price || 'Price on Request') + '</div>' +
+      badgeHtml(prop) +
+      '<div class="skp-info-grid" style="margin-top:18px">' + details.map(function (d) { return '<div class="skp-info-box"><small>' + esc(d[0]) + '</small><b>' + esc(d[1]) + '</b></div>'; }).join('') + '</div>' +
+      '<div class="skp-detail-card" style="margin-top:18px"><h4 style="font-size:14px;font-weight:900;color:#0F172A;margin-bottom:10px">Site Visit Booking</h4>' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><input id="skpVisitName" class="inp" placeholder="Name"><input id="skpVisitPhone" class="inp" placeholder="Phone"><input id="skpVisitBudget" class="inp" placeholder="Budget"><input id="skpVisitDate" class="inp" type="date"></div><textarea id="skpVisitMsg" class="inp" rows="3" style="margin-top:10px" placeholder="Message or requirement"></textarea>' +
+      '<button class="btn-p" style="width:100%;justify-content:center;margin-top:10px" onclick="skpSaveSiteVisit(' + prop.id + ')"><span class="iconify" data-icon="lucide:calendar-check" data-width="14"></span> Book Site Visit</button></div>' +
+      '<div class="skp-sticky-actions">' +
+      '<button class="btn-p" onclick="skpCallLead(' + prop.id + ')" style="flex:1;justify-content:center"><span class="iconify" data-icon="lucide:phone" data-width="14"></span> Call</button>' +
+      '<button class="btn-g" onclick="skpWhatsAppLead(\'Detail Modal\', ' + prop.id + ')" style="flex:1;justify-content:center"><span class="iconify" data-icon="lucide:message-circle" data-width="14"></span> WhatsApp</button>' +
+      '<button class="btn-g" onclick="shareSocial(\'Property ' + attr(prop.propertyId || prop.id) + '\')" style="flex:1;justify-content:center"><span class="iconify" data-icon="lucide:share-2" data-width="14"></span> Share</button>' +
+      '</div></div></div>';
+    modal.classList.add('show');
+  }
+
+  window.skpOpenMedia = function (url, fallback) {
+    if (url) window.open(url, '_blank');
+    else if (typeof toast === 'function') toast(fallback || 'Media coming soon', 'info');
+  };
+
+  function ensureLeadCaptureModal() {
+    if (document.getElementById('skpLeadCapture')) return;
+    var wrap = document.createElement('div');
+    wrap.id = 'skpLeadCapture';
+    wrap.className = 'skp-lead-modal';
+    wrap.onclick = function (event) { if (event.target === wrap) skpCloseLeadCapture(); };
+    wrap.innerHTML =
+      '<div class="skp-lead-box"><div class="skp-lead-head"><div><h3 style="font-size:18px;font-weight:900;color:#0F172A">Get Expert Property Support</h3><p style="font-size:12px;color:#64748B;margin-top:3px">Share your requirement and our team will call you.</p></div><button class="btn-icon" onclick="skpCloseLeadCapture()"><span class="iconify" data-icon="lucide:x" data-width="16"></span></button></div>' +
+      '<div class="skp-lead-body"><form onsubmit="skpSubmitLeadCapture(event)"><input type="hidden" id="skpLeadSource"><input type="hidden" id="skpLeadPropertyId">' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px"><input id="skpLeadName" class="inp" required placeholder="Name"><input id="skpLeadPhone" class="inp" required placeholder="Phone"></div>' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px"><input id="skpLeadReq" class="inp" placeholder="Requirement"><input id="skpLeadBudget" class="inp" placeholder="Budget"></div>' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px"><input id="skpLeadLoc" class="inp" placeholder="Preferred Location"><input id="skpLeadPid" class="inp" placeholder="Property ID"></div>' +
+      '<textarea id="skpLeadMsg" class="inp" rows="3" placeholder="Message"></textarea>' +
+      '<button class="btn-p" style="width:100%;justify-content:center;margin-top:14px;padding:15px"><span class="iconify" data-icon="lucide:send" data-width="15"></span> Submit Lead</button></form></div></div>';
+    document.body.appendChild(wrap);
+  }
+
+  window.skpOpenLeadCapture = function (source, pid) {
+    ensureLeadCaptureModal();
+    var prop = getList('properties').filter(function (p) { return p.id === pid; })[0];
+    document.getElementById('skpLeadSource').value = source || 'Website CTA';
+    document.getElementById('skpLeadPropertyId').value = pid || '';
+    document.getElementById('skpLeadPid').value = prop ? (prop.propertyId || prop.id) : '';
+    document.getElementById('skpLeadReq').value = prop ? prop.type : '';
+    document.getElementById('skpLeadLoc').value = prop ? (prop.location || '') : '';
+    document.getElementById('skpLeadCapture').classList.add('show');
+  };
+
+  window.skpCloseLeadCapture = function () {
+    var m = document.getElementById('skpLeadCapture');
+    if (m) m.classList.remove('show');
+  };
+
+  window.skpSubmitLeadCapture = function (event) {
+    event.preventDefault();
+    var lead = {
+      id: Date.now(),
+      name: document.getElementById('skpLeadName').value.trim(),
+      phone: document.getElementById('skpLeadPhone').value.trim(),
+      requirement: document.getElementById('skpLeadReq').value.trim(),
+      ptype: document.getElementById('skpLeadReq').value.trim(),
+      budget: document.getElementById('skpLeadBudget').value.trim(),
+      location: document.getElementById('skpLeadLoc').value.trim(),
+      propertyId: document.getElementById('skpLeadPid').value.trim() || document.getElementById('skpLeadPropertyId').value,
+      message: document.getElementById('skpLeadMsg').value.trim(),
+      source: document.getElementById('skpLeadSource').value || 'Website CTA',
+      status: 'New',
+      assignedTo: autoAssignSales(),
+      date: new Date().toISOString()
+    };
+    var leads = getList('leads');
+    leads.unshift(lead);
+    setList('leads', leads);
+    skpCloseLeadCapture();
+    if (typeof toast === 'function') toast('Lead saved. Our team will contact you shortly.', 'success');
+    if (typeof renderAdLeads === 'function') renderAdLeads();
+    if (typeof refreshDash === 'function') refreshDash();
+    refreshHeroCounters();
+  };
+
+  function autoAssignSales() {
+    var emps = getList('employees').filter(function (e) { return String(e.department || '').toLowerCase() === 'sales'; });
+    return emps.length ? emps[Math.floor(Math.random() * emps.length)].name : 'Admin';
+  }
+
+  window.skpWhatsAppLead = function (source, pid) {
+    skpOpenLeadCapture(source || 'WhatsApp', pid);
+    var prop = getList('properties').filter(function (p) { return p.id === pid; })[0];
+    var msg = prop ? ('Hi SK DREAM Property, I am interested in ' + (prop.propertyId || prop.id) + ' - ' + prop.title) : 'Hi SK DREAM Property, I want verified property options in Punjab.';
+    window.open('https://wa.me/' + SKP_PHONE + '?text=' + encodeURIComponent(msg), '_blank');
+  };
+
+  window.skpCallLead = function (pid) {
+    skpOpenLeadCapture('Call Button', pid);
+    location.href = 'tel:+919876543210';
+  };
+
+  window.skpSaveSiteVisit = function (pid) {
+    var prop = getList('properties').filter(function (p) { return p.id === pid; })[0] || {};
+    var name = (document.getElementById('skpVisitName') || {}).value || '';
+    var phone = (document.getElementById('skpVisitPhone') || {}).value || '';
+    if (!name || !phone) {
+      if (typeof toast === 'function') toast('Name and phone are required for site visit.', 'error');
+      return;
+    }
+    var visit = {
+      id: Date.now(),
+      name: name,
+      phone: phone,
+      property: prop.title || '',
+      propertyId: prop.propertyId || pid,
+      type: prop.type || '',
+      budget: (document.getElementById('skpVisitBudget') || {}).value || '',
+      message: (document.getElementById('skpVisitMsg') || {}).value || '',
+      status: 'Visit Booked',
+      date: (document.getElementById('skpVisitDate') || {}).value || new Date().toISOString()
+    };
+    var visits = getList('visits');
+    visits.unshift(visit);
+    setList('visits', visits);
+    var leads = getList('leads');
+    leads.unshift({ id: Date.now() + 1, name: name, phone: phone, ptype: prop.type || 'Site Visit', budget: visit.budget, propertyId: visit.propertyId, requirement: 'Site visit booking', message: visit.message, status: 'Visit Booked', assignedTo: autoAssignSales(), source: 'Site Visit Form', date: new Date().toISOString() });
+    setList('leads', leads);
+    if (typeof toast === 'function') toast('Site visit booking saved.', 'success');
+    if (typeof renderAdVisits === 'function') renderAdVisits();
+    if (typeof renderAdLeads === 'function') renderAdLeads();
+    if (typeof refreshDash === 'function') refreshDash();
+    refreshHeroCounters();
+  };
+
+  function injectTrustSections() {
+    if (document.getElementById('skpTrustFeatures')) return;
+    var propsSection = document.getElementById('props-section');
+    if (!propsSection) return;
+    propsSection.insertAdjacentHTML('afterend',
+      '<section id="skpTrustFeatures" class="skp-landing-band alt"><div style="max-width:1280px;margin:0 auto">' +
+      '<div style="text-align:center;margin-bottom:40px"><div class="skp-kicker"><span class="iconify" data-icon="lucide:shield-check" data-width="13"></span> Visual Trust</div><h2 style="font-size:clamp(1.7rem,4vw,2.45rem);font-weight:900;color:#0F172A;margin-top:14px">Verified Real Estate Experiences</h2><div class="sec-div"></div></div>' +
+      '<div class="skp-visual-grid">' +
+      trustCard('lucide:drone', 'Drone View Properties', 'Inspect approach roads, surroundings and land shape before visiting.') +
+      trustCard('lucide:rotate-3d', '360 Virtual Tour Properties', 'Shortlist premium options with virtual walkthrough links.') +
+      trustCard('lucide:shield-check', 'Verified Land Deals', 'Owner, location and document status shown clearly.') +
+      trustCard('lucide:handshake', 'Direct Owner Deals', 'Transparent conversations with owner-side support.') +
+      trustCard('lucide:trending-up', 'Investment Hotspots', 'Kurali, Mohali, Bharatmala road and Chandigarh growth corridors.') +
+      trustCard('lucide:map', 'Featured Locations', 'Curated options across Punjab, Mohali, Kurali and nearby regions.') +
+      trustCard('lucide:video', 'Client Video Reviews', 'Video review placeholders ready for real customer stories.') +
+      trustCard('lucide:trophy', 'Success Stories', 'Closed deals, site visits and relationship-manager follow-up.') +
+      '</div></div></section>' +
+      '<section id="skpProcess" class="skp-landing-band"><div style="max-width:1280px;margin:0 auto">' +
+      '<div style="display:grid;grid-template-columns:1fr 1.2fr;gap:36px;align-items:start"><div><div class="skp-kicker"><span class="iconify" data-icon="lucide:building-2" data-width="13"></span> Why Choose SK Dream Property</div><h2 style="font-size:clamp(1.7rem,4vw,2.45rem);font-weight:900;color:#0F172A;margin:14px 0">Mission, Vision and Process</h2><p style="color:#64748B;line-height:1.8">Our mission is to make land and property buying in Punjab more transparent through verified listings, guided site visits, document checks and owner-side support. Our vision is to become the most trusted verified real-estate platform for Punjab and nearby investment corridors.</p></div>' +
+      '<div class="skp-process-grid">' +
+      processCard('1', 'Requirement', 'We understand location, budget, use case and timeline.') +
+      processCard('2', 'Verified Options', 'The team shares matching listings with verification status.') +
+      processCard('3', 'Site Visit', 'Professional visits are scheduled with location support.') +
+      processCard('4', 'Documentation', 'Registry, NOC and ownership documents are reviewed.') +
+      processCard('5', 'Deal Close', 'Negotiation, token and closing steps are tracked clearly.') +
+      processCard('FAQ', 'Common Questions', 'Verified-only search, WhatsApp support and visit booking are built in.') +
+      '</div></div></div></section>' +
+      '<section id="skpSeoLanding" class="skp-landing-band alt"><div style="max-width:1280px;margin:0 auto"><div style="text-align:center;margin-bottom:34px"><div class="skp-kicker"><span class="iconify" data-icon="lucide:search-check" data-width="13"></span> Punjab Property Guides</div><h2 style="font-size:clamp(1.7rem,4vw,2.45rem);font-weight:900;color:#0F172A;margin-top:14px">SEO Landing Sections</h2></div><div class="skp-seo-grid">' +
+      seoCard('Land for Sale in Punjab', 'Verified agriculture, commercial and residential land options with location and document support.') +
+      seoCard('Land for Sale in Kurali', 'Road-front and investment land near Chandigarh growth corridors.') +
+      seoCard('Farmhouse Land near Chandigarh', 'Farmhouse-suitable parcels with visit scheduling and owner verification.') +
+      seoCard('Commercial Land in Mohali', 'Commercial frontage, highway access and market proximity details.') +
+      seoCard('Agriculture Land in Punjab', 'Fertile land options with ownership and registry checks.') +
+      seoCard('Property Dealer in Punjab', 'Local advisory, verified options and transparent follow-up.') +
+      seoCard('Land near Bharatmala Road', 'Investment corridors with road connectivity and future growth potential.') +
+      '</div><p style="font-size:12px;color:#64748B;margin-top:24px;text-align:center">Disclaimer: Property details are subject to verification and availability.</p></div></section>' +
+      '<section id="skpReviewsContact" class="skp-landing-band"><div style="max-width:1280px;margin:0 auto"><div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start"><div><div class="skp-kicker"><span class="iconify" data-icon="lucide:star" data-width="13"></span> Google Review Style</div><div class="skp-portal-grid" style="margin-top:18px">' +
+      reviewCard('Rajinder Singh', 'Verified land options and site visit support were handled professionally.') +
+      reviewCard('Simran Kaur', 'The team shared clear location details and helped shortlist plots quickly.') +
+      '</div></div><div class="skp-premium-card" style="padding:24px"><h3 style="font-size:22px;font-weight:900;color:#0F172A;margin-bottom:8px">Contact SK DREAM Property</h3><p style="color:#64748B;font-size:13px;line-height:1.8;margin-bottom:16px">For verified land, farmhouses, commercial properties and investment deals in Punjab.</p><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn-p" onclick="skpOpenLeadCapture(\'Contact Section\', null)"><span class="iconify" data-icon="lucide:send" data-width="14"></span> Send Requirement</button><button class="btn-g" onclick="skpWhatsAppLead(\'Contact Section\', null)"><span class="iconify" data-icon="lucide:message-circle" data-width="14"></span> WhatsApp</button></div></div></div></div></section>'
+    );
+  }
+
+  function trustCard(icon, title, text) {
+    return '<div class="skp-trust-card"><span class="iconify" data-icon="' + icon + '" data-width="28" style="color:#0D47A1"></span><b>' + title + '</b><p>' + text + '</p></div>';
+  }
+
+  function processCard(step, title, text) {
+    return '<div class="skp-trust-card"><div style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#0D47A1,#1565C0);color:#FFF;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px">' + step + '</div><b>' + title + '</b><p>' + text + '</p></div>';
+  }
+
+  function seoCard(title, text) {
+    return '<article class="skp-trust-card"><b>' + title + '</b><p>' + text + '</p></article>';
+  }
+
+  function reviewCard(name, text) {
+    return '<div class="skp-review-card"><div style="color:#D97706;font-size:14px;margin-bottom:8px">★★★★★</div><p style="color:#475569;font-size:13px;line-height:1.75">' + text + '</p><b style="display:block;margin-top:12px;color:#0F172A;font-size:13px">' + name + '</b></div>';
+  }
+
+  function enhanceAdmin() {
+    var dash = document.getElementById('tab-dashboard');
+    if (dash && !document.getElementById('skpAdminOverview')) {
+      dash.insertAdjacentHTML('beforeend',
+        '<div id="skpAdminOverview" class="skp-premium-card" style="padding:20px;margin-top:22px"><h3 style="font-size:16px;font-weight:900;color:#0F172A;margin-bottom:14px">Real Estate Operations Overview</h3><div class="skp-admin-kpis">' +
+        kpi('Total Leads', 'skpKpiLeads', 'lucide:users') +
+        kpi("Today's Leads", 'skpKpiToday', 'lucide:calendar-days') +
+        kpi('Pending Follow-ups', 'skpKpiFollow', 'lucide:phone-forwarded') +
+        kpi('Site Visit Bookings', 'skpKpiVisits', 'lucide:calendar-check') +
+        kpi('Sold Properties', 'skpKpiSold', 'lucide:badge-check') +
+        kpi('Revenue Overview', 'skpKpiRevenue', 'lucide:indian-rupee') +
+        '</div></div>');
+    }
+    var propTab = document.getElementById('tab-properties');
+    if (propTab && !document.getElementById('skpAdminPropertyTools')) {
+      propTab.insertAdjacentHTML('afterbegin', '<div id="skpAdminPropertyTools" class="skp-premium-card" style="padding:16px;margin-bottom:18px;display:flex;gap:10px;flex-wrap:wrap"><button class="btn-g btn-sm" onclick="skpBulkVerify()"><span class="iconify" data-icon="lucide:shield-check" data-width="13"></span> Mark Featured as Verified</button><button class="btn-g btn-sm" onclick="skpOpenSeoAdmin()"><span class="iconify" data-icon="lucide:search-check" data-width="13"></span> Add SEO Page Content</button><button class="btn-g btn-sm" onclick="skpAddClientReview()"><span class="iconify" data-icon="lucide:star" data-width="13"></span> Add Client Review</button></div>');
+    }
+    enhancePropertyForm();
+    updateAdminKpis();
+  }
+
+  function kpi(label, id, icon) {
+    return '<div class="st-card"><div style="width:42px;height:42px;border-radius:12px;background:rgba(13,71,161,.07);display:flex;align-items:center;justify-content:center;margin-bottom:8px"><span class="iconify" data-icon="' + icon + '" data-width="16" style="color:#0D47A1"></span></div><div id="' + id + '" style="font-size:22px;font-weight:900;color:#0F172A">0</div><div style="color:#64748B;font-size:9px;font-weight:800">' + label + '</div></div>';
+  }
+
+  function updateAdminKpis() {
+    var leads = getList('leads'), props = getList('properties'), visits = getList('visits');
+    var today = new Date().toDateString();
+    var set = function (id, val) { var el = document.getElementById(id); if (el) el.textContent = val; };
+    set('skpKpiLeads', leads.length);
+    set('skpKpiToday', leads.filter(function (l) { return new Date(l.date || l.createdAt || Date.now()).toDateString() === today; }).length);
+    set('skpKpiFollow', leads.filter(function (l) { return /new|contacted|follow/i.test(l.status || 'New'); }).length);
+    set('skpKpiVisits', visits.length);
+    set('skpKpiSold', props.filter(function (p) { return p.status === 'Sold'; }).length);
+    set('skpKpiRevenue', 'Rs ' + (props.filter(function (p) { return p.status === 'Sold'; }).length * 250000).toLocaleString('en-IN'));
+  }
+
+  function enhancePropertyForm() {
+    var form = document.getElementById('propForm');
+    if (!form || document.getElementById('skpExtraPropFields')) return;
+    var btn = form.querySelector('button[type="submit"]');
+    var html = '<div id="skpExtraPropFields" style="margin:16px 0;padding:14px;border-radius:14px;background:rgba(13,71,161,.03);border:1px solid rgba(13,71,161,.08)"><h4 style="font-size:13px;font-weight:900;color:#0F172A;margin-bottom:12px">Verification, Media and SEO Details</h4><div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><input id="pDroneLink" class="inp" placeholder="Drone video link"><input id="pTourLink" class="inp" placeholder="360 tour link"><input id="pMapLink" class="inp" placeholder="Google Map link"><input id="pRoadFront" class="inp" placeholder="Road frontage"><input id="pNearby" class="inp" placeholder="Nearby highway/college/market"><input id="pDocs" class="inp" placeholder="Documents available"></div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px"><label class="skp-check"><input type="checkbox" id="pVerified"> Verified</label><label class="skp-check"><input type="checkbox" id="pSold"> Sold</label><label class="skp-check"><input type="checkbox" id="pOwnerVerified"> Owner Verified</label><label class="skp-check"><input type="checkbox" id="pDirectOwner"> Direct Owner</label></div></div>';
+    if (btn) btn.insertAdjacentHTML('beforebegin', html); else form.insertAdjacentHTML('beforeend', html);
+  }
+
+  var oldOpenPropModal = window.openPropModal;
+  window.openPropModal = function (prop) {
+    if (oldOpenPropModal) oldOpenPropModal(prop);
+    enhancePropertyForm();
+    setTimeout(function () {
+      prop = prop || {};
+      setVal('pDroneLink', prop.droneVideoLink);
+      setVal('pTourLink', prop.tour360Link);
+      setVal('pMapLink', prop.mapLink);
+      setVal('pRoadFront', prop.roadFrontage);
+      setVal('pNearby', prop.nearby);
+      setVal('pDocs', prop.documentsAvailable);
+      setChk('pVerified', prop.verificationStatus === 'Verified');
+      setChk('pSold', prop.status === 'Sold');
+      setChk('pOwnerVerified', !!prop.ownerVerified);
+      setChk('pDirectOwner', !!prop.directOwnerDeal);
+    }, 50);
+  };
+
+  var oldSaveProp = window.saveProp;
+  window.saveProp = function (event) {
+    if (oldSaveProp) oldSaveProp(event);
+    setTimeout(function () {
+      var editId = parseInt((document.getElementById('pEditId') || {}).value || '0', 10);
+      var props = getList('properties');
+      var p = editId ? props.filter(function (x) { return x.id === editId; })[0] : props[0];
+      if (!p) return;
+      p.droneVideoLink = val('pDroneLink') || p.droneVideoLink || '';
+      p.tour360Link = val('pTourLink') || p.tour360Link || '';
+      p.mapLink = val('pMapLink') || p.mapLink || '';
+      p.roadFrontage = val('pRoadFront') || p.roadFrontage || '';
+      p.nearby = val('pNearby') || p.nearby || '';
+      p.documentsAvailable = val('pDocs') || p.documentsAvailable || '';
+      p.verificationStatus = chk('pVerified') ? 'Verified' : (p.verificationStatus || 'Pending');
+      p.status = chk('pSold') ? 'Sold' : (p.status || 'Available');
+      p.ownerVerified = chk('pOwnerVerified') || p.ownerVerified;
+      p.directOwnerDeal = chk('pDirectOwner') || p.directOwnerDeal;
+      p.documentsChecked = p.verificationStatus === 'Verified' || p.documentsChecked;
+      setList('properties', props);
+      if (typeof renderAdProps === 'function') renderAdProps();
+      if (typeof renderPubProps === 'function') renderPubProps();
+      updateAdminKpis();
+    }, 120);
+  };
+
+  function val(id) { return (document.getElementById(id) || {}).value || ''; }
+  function chk(id) { return !!(document.getElementById(id) || {}).checked; }
+  function setVal(id, v) { var el = document.getElementById(id); if (el) el.value = v || ''; }
+  function setChk(id, v) { var el = document.getElementById(id); if (el) el.checked = !!v; }
+
+  window.skpBulkVerify = function () {
+    var props = getList('properties');
+    props.forEach(function (p) { if (p.featured) { p.verificationStatus = 'Verified'; p.ownerVerified = true; p.locationVerified = true; p.documentsChecked = true; } });
+    setList('properties', props);
+    if (typeof renderAdProps === 'function') renderAdProps();
+    if (typeof renderPubProps === 'function') renderPubProps();
+    if (typeof toast === 'function') toast('Featured properties marked verified.', 'success');
+  };
+
+  window.skpOpenSeoAdmin = function () {
+    var content = prompt('Add SEO page content note for admin demo:', 'Land for Sale in Punjab - verified property content updated.');
+    if (!content) return;
+    var pages = getList('seoPages');
+    pages.unshift({ id: Date.now(), content: content, date: new Date().toISOString() });
+    setList('seoPages', pages);
+    if (typeof toast === 'function') toast('SEO content saved.', 'success');
+  };
+
+  window.skpAddClientReview = function () {
+    var review = prompt('Add client review:', 'Professional service and verified property support.');
+    if (!review) return;
+    var reviews = getList('clientReviews');
+    reviews.unshift({ id: Date.now(), name: 'Client', review: review, date: new Date().toISOString() });
+    setList('clientReviews', reviews);
+    if (typeof toast === 'function') toast('Client review saved.', 'success');
+  };
+
+  var oldRenderAdLeads = window.renderAdLeads;
+  window.renderAdLeads = function () {
+    if (oldRenderAdLeads) oldRenderAdLeads();
+    var tbody = document.getElementById('adLeadsT');
+    if (!tbody) return;
+    var leads = getList('leads');
+    if (!leads.length) return;
+    tbody.innerHTML = leads.map(function (l) {
+      return '<tr><td style="color:#0F172A;font-weight:600;font-size:12px">' + esc(l.name || '-') + '<div style="font-size:9px;color:#64748B">' + esc(l.source || 'Website') + '</div></td><td style="font-size:11px">' + esc(l.phone || '-') + '</td><td style="font-size:11px">' + esc(l.ptype || l.requirement || '-') + '<div style="font-size:9px;color:#64748B">' + esc(l.propertyId || l.location || '') + '</div></td><td style="font-size:11px">' + esc(l.budget || '-') + '</td><td><select class="inp" style="height:32px;font-size:10px" onchange="skpLeadStatus(' + l.id + ',this.value)"><option' + sel(l.status, 'New') + '>New</option><option' + sel(l.status, 'Contacted') + '>Contacted</option><option' + sel(l.status, 'Visit Booked') + '>Visit Booked</option><option' + sel(l.status, 'Closed') + '>Closed</option><option' + sel(l.status, 'Not Interested') + '>Not Interested</option></select></td><td style="font-size:11px">' + esc(l.assignedTo || 'Auto') + '<div><button class="btn-g btn-sm" style="font-size:9px;padding:5px 8px;margin-top:4px" onclick="skpAssignLead(' + l.id + ')">Assign</button></div></td><td style="font-size:10px;color:#64748B">' + (typeof timeAgo === 'function' ? timeAgo(l.date) : new Date(l.date || Date.now()).toLocaleDateString()) + '</td></tr>';
+    }).join('');
+  };
+
+  function sel(a, b) { return String(a || 'New') === b ? ' selected' : ''; }
+
+  window.skpLeadStatus = function (id, status) {
+    var leads = getList('leads');
+    leads.forEach(function (l) { if (l.id === id) l.status = status; });
+    setList('leads', leads);
+    updateAdminKpis();
+  };
+
+  window.skpAssignLead = function (id) {
+    var name = prompt('Assign lead to employee:', autoAssignSales());
+    if (!name) return;
+    var leads = getList('leads');
+    leads.forEach(function (l) { if (l.id === id) l.assignedTo = name; });
+    setList('leads', leads);
+    if (typeof renderAdLeads === 'function') renderAdLeads();
+  };
+
+  var oldRefreshDash = window.refreshDash;
+  window.refreshDash = function () {
+    if (oldRefreshDash) oldRefreshDash();
+    updateAdminKpis();
+  };
+
+  function enhancePortals() {
+    var customer = document.getElementById('customer-portal');
+    if (customer && !document.getElementById('skpCustomerUpgrade')) {
+      customer.querySelector('div[style*="max-width"]')?.insertAdjacentHTML('beforeend',
+        '<div id="skpCustomerUpgrade" class="skp-premium-card" style="padding:22px;margin-top:24px"><h3 style="font-size:18px;font-weight:900;color:#0F172A;margin-bottom:14px">Customer Property Hub</h3><div class="skp-portal-grid">' +
+        portalItem('Saved Properties', 'Wishlist and comparison-ready listings.') +
+        portalItem('Recently Viewed', 'Your viewed property history.') +
+        portalItem('Booking History', 'Site visit and token booking records.') +
+        portalItem('Site Visit Status', 'New, scheduled, completed and rescheduled visits.') +
+        portalItem('Payment History', 'Token and service payment records.') +
+        portalItem('Download Brochure', 'Property brochure action for each listing.') +
+        portalItem('Wishlist', 'Save verified properties for follow-up.') +
+        portalItem('Property Alerts', 'Alerts for budget, type and location matches.') +
+        '</div></div>');
+    }
+    var empPage = document.getElementById('emp-login-page') || document.getElementById('admin-page');
+    if (empPage && !document.getElementById('skpEmployeeUpgrade') && document.getElementById('tab-performance')) {
+      var perf = document.getElementById('tab-performance');
+      perf.insertAdjacentHTML('beforeend',
+        '<div id="skpEmployeeUpgrade" class="skp-premium-card" style="padding:20px;margin-top:22px"><h3 style="font-size:17px;font-weight:900;color:#0F172A;margin-bottom:14px">Employee Follow-up Console</h3><div class="skp-portal-grid">' +
+        portalItem('Assigned Leads', 'Lead ownership and daily call focus.') +
+        portalItem('Today Follow-ups', 'Follow-ups due today with call notes.') +
+        portalItem('Client Notes', 'Store requirements, objections and next steps.') +
+        portalItem('Call Status', 'New, contacted, visit booked, closed or not interested.') +
+        portalItem('WhatsApp Follow-up', 'One-tap WhatsApp follow-up from CRM.') +
+        portalItem('Site Visit Schedule', 'Upcoming visit status and meeting notes.') +
+        portalItem('Performance Summary', 'Lead count, closures and visits.') +
+        '</div></div>');
+    }
+  }
+
+  function portalItem(title, text) {
+    return '<div class="skp-trust-card"><b>' + title + '</b><p>' + text + '</p></div>';
+  }
+
+  function installMobileBottomNav() {
+    if (document.getElementById('skpMobileBottom')) return;
+    var nav = document.createElement('div');
+    nav.id = 'skpMobileBottom';
+    nav.className = 'skp-mobile-bottom';
+    nav.innerHTML =
+      '<button onclick="showPV(\'home-page\')"><span class="iconify" data-icon="lucide:home" data-width="18"></span>Home</button>' +
+      '<button onclick="scrollToEl(\'props-section\')"><span class="iconify" data-icon="lucide:building-2" data-width="18"></span>Listings</button>' +
+      '<button onclick="skpOpenLeadCapture(\'Bottom Nav Visit\', null)"><span class="iconify" data-icon="lucide:calendar-check" data-width="18"></span>Visit</button>' +
+      '<button onclick="skpWhatsAppLead(\'Bottom Nav\', null)"><span class="iconify" data-icon="lucide:message-circle" data-width="18"></span>WhatsApp</button>';
+    document.body.appendChild(nav);
+  }
+
+  function patchImagesLazy() {
+    Array.prototype.forEach.call(document.images, function (img) {
+      if (!img.loading) img.loading = 'lazy';
+      if (!img.onerror) img.onerror = function () { this.src = 'local-upload-image://verified-punjab-property/640/420.jpg'; };
+    });
+  }
+
+  function boot() {
+    ensureSeo();
+    ensureData();
+    injectHero();
+    overrideRendering();
+    injectTrustSections();
+    ensureLeadCaptureModal();
+    enhanceAdmin();
+    enhancePortals();
+    installMobileBottomNav();
+    patchImagesLazy();
+    if (typeof renderPubProps === 'function') renderPubProps();
+    if (typeof renderAllProps === 'function') renderAllProps();
+    if (typeof renderAdLeads === 'function') renderAdLeads();
+    if (typeof refreshDash === 'function') refreshDash();
+    refreshHeroCounters();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+  setTimeout(boot, 500);
+})();
+</script>
